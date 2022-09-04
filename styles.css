@@ -1,0 +1,179 @@
+/* ~= is used to target every attribute that contains the mentioned class, even if it has more classes beside this one. */
+span[class~="sr-only"] {
+  /* When you add !important to a property, it means that nothing down the page will overwrite it. */
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    clip-path: inset(50%) !important;
+    -webkit-clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    position: absolute !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    /* The whole code above is only used to hide the text on the page, but still make it available for screen readers to detect and read. */
+  }
+  
+  html {
+    box-sizing: border-box;
+    /* Resetting the box model across the whole page. */
+  }
+  
+  body {
+    font-family: sans-serif;
+    color: #0a0a23;
+  }
+  
+  h1 {
+    max-width: 37.25rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem;
+  }
+  
+  /* Targets all h1 with class named .flex. */
+  h1 .flex {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  
+  /* Targeting the first span inside of an h1 with a class set to flex. */
+  h1 .flex span:first-of-type {
+    font-size: 0.7em;
+  }
+  
+  /* Targeting the last span inside of an h1 with a class of flex. */
+  h1 .flex span:last-of-type {
+    font-size: 1.2em;
+  }
+  
+  section {
+    max-width: 40rem;
+    margin: 0 auto;
+    border: 2px solid #d0d0d5;
+  }
+  
+  /* Targeting the id of years */
+  #years {
+    display: flex;
+    justify-content: flex-end;
+    /* sticky is sort of a combination between relative and fixed. */
+    position: sticky;
+    top: 0;
+    background: #0a0a23;
+    color: #fff;
+    /* Making sure it displays above anything else. */
+    z-index: 999;
+    padding: 0.5rem calc(1.25rem + 2px) 0.5rem 0;
+    margin: 0 -2px;
+  }
+  
+  /* Targets every span inside an element with an id of years, that has any sort of class assigned to them. */
+  #years span[class] {
+    font-weight: bold;
+    width: 4.5rem;
+    text-align: right;
+  }
+  
+  .table-wrap {
+    padding: 0 0.75rem 1.5rem 0.75rem;
+  }
+  
+  table {
+    /* This line decides whether the border should be collapsed into 1 border or stays as two separate borders. one for each box. */
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    /* Setting position relative so I can position all of it's childrens according to this element. */
+    position: relative;
+    margin-top: 3rem;
+  }
+  
+  table caption {
+    color: #356eaf;
+    font-size: 1.3em;
+    font-weight: normal;
+    /* Positioned according to the 'relative' parent, which is the table element. */
+    position: absolute;
+    /* top and left are used to decided the position of an absolute positioned element, relative to the parent location. */
+    top: -2.25rem;
+    left: 0.5rem;
+  }
+  
+  tbody td {
+    /* This combination makes sure that the element will take all of the available space within 4rem, and not shrink down, as it's a flex item. */
+    width: 100vw;
+    min-width: 4rem;
+    max-width: 4rem;
+  }
+  
+  tbody th {
+    /* We can use calc to set a value using math. */
+    width: calc(100% - 12rem);
+  }
+  
+  /* This psuedo element is used to target all tr elements that has the class of total, and no other class other than that. */
+  tr[class="total"] {
+    border-bottom: 4px double #0a0a23;
+    font-weight: bold;
+  }
+  
+  /* Targets all the th element, inside the tr elements, that has the class of total and no other class. */
+  tr[class="total"] th {
+    text-align: left;
+    padding: 0.5rem 0 0.25rem 0.5rem;
+  }
+  
+  /* Targets all the tr elements with class of total, regardless of other classes. */
+  tr.total td {
+    text-align: right;
+    padding: 0 0.25rem;
+  }
+  
+  /* Targets the third td element inside the tr with class of total. */
+  tr.total td:nth-of-type(3) {
+    padding-right: 0.5rem;
+  }
+  
+  /* Hover effect for all tr elements with class of total */
+  tr.total:hover {
+    background-color: #99c9ff;
+  }
+  
+  td.current {
+    /* Changing the font style to italic */
+    font-style: italic;
+  }
+  
+  tr.data {
+    /* Adding gradient effect to all tr elements with class of data. */
+    background-image: linear-gradient(to bottom, #dfdfe2 1.845rem, white 1.845rem);
+  }
+  
+  /* Targets all of the th elements within the tr elements with the class of data */
+  tr.data th {
+    text-align: left;
+    padding-top: 0.3rem;
+    padding-left: 0.5rem;
+  }
+  
+  /* Targets all th elements with the class of description, located inside tr elements with class of data. */
+  tr.data th .description {
+    display: block;
+    font-weight: normal;
+    font-style: italic;
+    padding: 1rem 0 0.75rem;
+    /* Negative margin right is actually used to pull the element to the left. */
+    margin-right: -13.5rem;
+  }
+  
+  tr.data td {
+    vertical-align: top;
+    text-align: right;
+    padding: 0.3rem 0.25rem 0;
+  }
+  
+  tr.data td:last-of-type {
+    padding: 0.5rem;
+  }
